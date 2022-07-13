@@ -1,0 +1,30 @@
+defaults:
+  resources:
+    instance-type: C4
+
+jobs:
+  cloneRepo:
+    outputs:
+      repo:
+        type: volume
+    uses: git-checkout@v1
+    with:
+      url: https://github.com/Jameshskelton/workflow-model-upload
+  downloadData:
+    needs:
+      - cloneRepo
+    inputs:
+      repo: cloneRepo.outputs.repo
+    outputs:
+      models:
+        type: dataset
+        with:
+          ref: dalle-mini-models
+    uses: script@v1
+    with:
+      script: |-
+        ls inputs/repo/
+        python inputs/repo/script.py
+        cp dallebart/ outputs/
+        cp vqgan-jax/ outputs/
+      image: tensorflow/tensorflow:1.14.0-gpu-py3
