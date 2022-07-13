@@ -23,13 +23,13 @@ jobs:
     uses: script@v1
     with:
       script: |-
-        ls 
-        pip install pyyaml==5.4.1 --ignore-installed
-        pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-        pip install "jax[cuda11_cudnn805]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-        pip install -q dalle-mini
-        pip install -q git+https://github.com/patil-suraj/vqgan-jax.git
-        python inputs/repo/script.py
-        cp dallebart outputs
-        cp vqgan-jax outputs
+        ls ../
+        # pip install pyyaml==5.4.1 --ignore-installed
+        # pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+        # pip install "jax[cuda11_cudnn805]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+        # pip install -q dalle-mini
+        # pip install -q git+https://github.com/patil-suraj/vqgan-jax.git
+        # python inputs/repo/script.py
+        # cp dallebart outputs
+        # cp vqgan-jax outputs
       image: paperspace/nb-pytorch:22.02-py3
