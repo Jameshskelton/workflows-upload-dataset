@@ -1,7 +1,5 @@
 
 # Load models & tokenizer
-from ipywidgets import FloatProgress as IProgress
-
 import jax
 import jax.numpy as jnp
 import os
