@@ -9,7 +9,7 @@ jobs:
         type: volume
     uses: git-checkout@v1
     with:
-      url: https://github.com/Jameshskelton/workflow-model-upload
+      url: https://github.com/Jameshskelton/workflows-upload-dataset
   downloadData:
     needs:
       - cloneRepo
