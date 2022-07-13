@@ -23,8 +23,7 @@ model, params = DalleBart.from_pretrained(DALLE_MODEL, revision=DALLE_COMMIT_ID,
 
 vqgan, vqgan_params = VQModel.from_pretrained(VQGAN_REPO, revision=VQGAN_COMMIT_ID, _do_init=False)
 print('stage 3')
-os.makedir('dallebart')
-os.makedir('vqgan-jax')
+
 model.save('dallebart/', params = params)
 vqgan.save_pretrained('vqgan-jax/',params=vqgan_params)
 

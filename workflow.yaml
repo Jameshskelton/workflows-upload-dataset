@@ -31,6 +31,8 @@ jobs:
         pip install "jax[cuda11_cudnn805]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
         pip install -q dalle-mini
         pip install -q git+https://github.com/patil-suraj/vqgan-jax.git
+        mkdir dallebart
+        mkdir vqgan-jax
         python ../inputs/repo/script.py
         cp dallebart ../outputs
         cp vqgan-jax ../outputs
