@@ -25,7 +25,7 @@ jobs:
       script: |-
         ls ../outputs/models
         ls ../models
-        ls..
+        ls ..
         # pip install wandb
         # wandb login --anonymously
         # pip install pyyaml==5.4.1 --ignore-installed
