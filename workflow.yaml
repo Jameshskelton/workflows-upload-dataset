@@ -23,8 +23,8 @@ jobs:
     uses: script@v1
     with:
       script: |-
-        ls ../outputs/models
-        ls ../models
+        ls ../outputs
+        echo "whassap"
         ls ..
         # pip install wandb
         # wandb login --anonymously
