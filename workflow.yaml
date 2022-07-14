@@ -19,7 +19,7 @@ jobs:
       models:
         type: dataset
         with:
-          ref: dalle-mini-models
+          ref: ds81k0b6iaaxx0z
     uses: script@v1
     with:
       script: |-
