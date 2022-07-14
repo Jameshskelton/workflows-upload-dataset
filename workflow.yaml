@@ -23,18 +23,20 @@ jobs:
     uses: script@v1
     with:
       script: |-
-        ls ../outputs/models/
-        pip install wandb
-        wandb login --anonymously
-        pip install pyyaml==5.4.1 --ignore-installed
-        pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-        pip install "jax[cuda11_cudnn805]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-        pip install -q dalle-mini
-        pip install -q git+https://github.com/patil-suraj/vqgan-jax.git
-        mkdir dallebart
-        mkdir vqgan-jax
-        python ../inputs/repo/script.py
-        ls
-        mv dallebart ../models/
-        mv -r vqgan-jax ../models/
+        ls ../outputs/models
+        ls ../models
+        ls..
+        # pip install wandb
+        # wandb login --anonymously
+        # pip install pyyaml==5.4.1 --ignore-installed
+        # pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+        # pip install "jax[cuda11_cudnn805]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+        # pip install -q dalle-mini
+        # pip install -q git+https://github.com/patil-suraj/vqgan-jax.git
+        # mkdir dallebart
+        # mkdir vqgan-jax
+        # python ../inputs/repo/script.py
+        # ls
+        # mv dallebart ../models/
+        # mv -r vqgan-jax ../models/
       image: paperspace/nb-pytorch:22.02-py3
