@@ -19,7 +19,7 @@ jobs:
       models:
         type: dataset
         with:
-          ref: ds81k0b6iaaxx0z
+          ref: ds0aibma9brlxfy
     uses: script@v1
     with:
       script: |-
