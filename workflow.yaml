@@ -23,7 +23,7 @@ jobs:
     uses: script@v1
     with:
       script: |-
-        ls ../outputs
+        ls ../outputs/models
         echo "whassap"
         ls ..
         # pip install wandb
@@ -37,6 +37,6 @@ jobs:
         # mkdir vqgan-jax
         # python ../inputs/repo/script.py
         # ls
-        # mv dallebart ../models/
-        # mv -r vqgan-jax ../models/
+        # mv dallebart ../outputs/
+        # mv vqgan-jax ../outputs/
       image: paperspace/nb-pytorch:22.02-py3
