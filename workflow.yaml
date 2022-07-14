@@ -23,7 +23,7 @@ jobs:
     uses: script@v1
     with:
       script: |-
-        ls ../inputs/repo
+        ls ../outputs/
         pip install wandb
         wandb login --anonymously
         pip install pyyaml==5.4.1 --ignore-installed
@@ -35,6 +35,6 @@ jobs:
         mkdir vqgan-jax
         python ../inputs/repo/script.py
         ls
-        cp -r dallebart ../outputs/dalle-mini-models
+        mv dallebart ../outputs/dalle-mini-models
         cp -r vqgan-jax ../outputs/dalle-mini-models
       image: paperspace/nb-pytorch:22.02-py3
