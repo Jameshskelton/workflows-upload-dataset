@@ -34,6 +34,6 @@ jobs:
         mkdir dallebart
         mkdir vqgan-jax
         python ../inputs/repo/script.py
-        cp dallebart ../outputs
-        cp vqgan-jax ../outputs
+        cp -r dallebart ../outputs
+        cp -r vqgan-jax ../outputs
       image: paperspace/nb-pytorch:22.02-py3
