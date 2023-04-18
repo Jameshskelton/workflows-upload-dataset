@@ -1,0 +1,20 @@
+defaults:
+  resources:
+    instance-type: C7
+jobs:
+  downloadData:
+    outputs:
+      models:
+        type: dataset
+        with:
+          ref: dsu9d3o0z19kqrm
+    uses: script@v1
+    with:
+      script: |-
+        export DEBIAN_FRONTEND=noninteractive
+        echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+        apt-get update && apt-get install git-lfs -y
+        git-lfs clone https://huggingface.co/SG161222/Realistic_Vision_V2.0
+        mv Realistic_Vision_V2.0/ ../outputs/models
+
+      image: paperspace/nb-pytorch:22.02-py3
