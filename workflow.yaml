@@ -19,26 +19,54 @@ jobs:
       models:
         type: dataset
         with:
-          ref: ds0aibma9brlxfy
+          ref: ds2613iefqca1y7
     uses: script@v1
     with:
       script: |-
-        ls ../outputs/models
-        echo 'bring it'
-        ls ../outputs/
-        echo "whassap"
-        ls ..
-        # pip install wandb
-        # wandb login --anonymously
-        # pip install pyyaml==5.4.1 --ignore-installed
-        # pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-        # pip install "jax[cuda11_cudnn805]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-        # pip install -q dalle-mini
-        # pip install -q git+https://github.com/patil-suraj/vqgan-jax.git
-        # mkdir dallebart
-        # mkdir vqgan-jax
-        # python ../inputs/repo/script.py
-        # ls
-        # mv dallebart ../outputs/models
-        # mv vqgan-jax ../outputs/models
+        cd ../outputs/models/
+        mkdir scheduler
+        cd scheduler/
+        wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/scheduler/scheduler_config.json
+        cd ..
+        mkdir text_encoder_2
+        cd text_encoder_2
+        wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/text_encoder_2/config.json
+        wget -O model.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/text_encoder_2/model.safetensors
+        cd ..
+        mkdir text_encoder
+        cd text_encoder
+        wget -O config.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/text_encoder/config.json
+        wget model.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/text_encoder/model.safetensors
+        cd ..
+        mkdir unet
+        cd unet
+        wget -O config.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/unet/config.json
+        wget -O model.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/unet/diffusion_pytorch_model.safetensors
+        cd ..
+        mkdir vae
+        cd vae
+        wget -O config.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/vae/config.json
+        wget -O diffusion_pytorch_model.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/vae/diffusion_pytorch_model.safetensors
+        cd ..
+        mkdir vae_1_0
+        cd vae_1_0
+        wget -O config.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/vae_1_0/config.json
+        wget -O diffusion_pytorch_model.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/vae_1_0/diffusion_pytorch_model.safetensors
+        cd ..
+        mkdir vae_decoder
+        cd vae_decoder
+        wget -O config.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/vae_decoder/config.json
+        wget -O model.onnx https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/vae_decoder/model.onnx
+        wget -O openvino_model.onnx https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/vae_decoder/openvino_model.bin
+        wget -O openvino_model.xml https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/vae_decoder/openvino_model.xml
+        cd ..
+        mkdir vae_encoder
+        cd vae_encoder
+        wget -O config.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/vae_encoder/config.json
+        wget -O model.onnx https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/vae_encoder/model.onnx
+        wget -O openvino_model.onnx https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/vae_encoder/openvino_model.bin
+        wget -O openvino_model.xml https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/vae_encoder/openvino_model.xml
+        cd ..
+        wget -O model_index.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/model_index.json
+        wget -O sd_xl_base_1.0.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors
       image: paperspace/nb-pytorch:22.02-py3
