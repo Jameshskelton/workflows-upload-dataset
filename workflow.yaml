@@ -38,6 +38,19 @@ jobs:
         wget -O config.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/text_encoder/config.json
         wget model.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/text_encoder/model.safetensors
         cd ..
+        mkdir tokenizer
+        cd tokenizer
+        wget -O merges.txt https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/tokenizer/merges.txt
+        wget -O special_tokens_map.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/tokenizer/special_tokens_map.json
+        wget -O tokenizer_config.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/tokenizer/tokenizer_config.json
+        wget -O vocab.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/tokenizer/vocab.json
+        cd ..
+        mkdir tokenizer_2
+        wget -O merges.txt https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/tokenizer_2/merges.txt
+        wget -O special_tokens_map.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/tokenizer_2/special_tokens_map.json
+        wget -O tokenizer_config.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/tokenizer_2/tokenizer_config.json
+        wget -O vocab.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/tokenizer_2/vocab.json
+        cd ..
         mkdir unet
         cd unet
         wget -O config.json https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/unet/config.json
